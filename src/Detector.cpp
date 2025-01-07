@@ -17,3 +17,31 @@ void HarrisDetector::detect(const Mat &image, vector<KeyPoint> &keypoints) {
         }
     }
 }
+
+// ShiTomassi =  É um melhorador do detector de harris
+void ShiTomassi::detect(const Mat &image, vector<KeyPoint> &keypoints) {
+    Mat gray;
+    
+    // Converte a imagem para escala de cinza
+    cvtColor(image, gray, cv::COLOR_BGR2GRAY);
+
+    // Detecta os cantos
+    vector<Point2f> corners;
+    goodFeaturesToTrack(
+        gray,
+        corners,
+        100,     // Número máximo de cantos
+        0.01,    // Qualidade mínima
+        10,      // Distância mínima entre cantos
+        Mat(),   // Nenhuma máscara
+        3,       // Tamanho da janela
+        false,   // Parâmetro de Harris
+        0.04     
+    );
+
+    // Converte Point2f para KeyPoint
+    keypoints.clear();
+    for (const auto &corner : corners) {
+        keypoints.emplace_back(corner, 1.0f);  // Raio padrão 1.0f
+    }
+}

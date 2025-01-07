@@ -12,6 +12,7 @@ using namespace cv;
 void processDataset(Detector &detector, Descriptor &descriptor) {
     vector<KeyPoint> keypoints;
     Mat descriptors, gray, outputImage;
+    Scalar keyPointsColor;
 
     int count = 0;
     fs::create_directories(Config::outputFolder);
@@ -40,7 +41,14 @@ void processDataset(Detector &detector, Descriptor &descriptor) {
         }
 
         // Draw keypoints
-        drawKeypoints(image, keypoints, outputImage, Scalar(0, 255, 0), DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+        if (Config::keyPointsColor == "red") {
+            keyPointsColor = Scalar(0, 0, 255);
+        }
+        if (Config::keyPointsColor == "green") {
+            keyPointsColor = Scalar(0, 255, 0);
+        }
+
+        drawKeypoints(image, keypoints, outputImage, keyPointsColor, DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
 
         // Save images with keypoints
         string outputPath = Config::outputFolder + "/" + entry.path().filename().string();
@@ -53,7 +61,7 @@ void processDataset(Detector &detector, Descriptor &descriptor) {
 }
 
 int main() {
-    HarrisDetector detector;
+    ShiTomassi detector;
     ORBDescriptor descriptor;
 
     processDataset(detector, descriptor);
