@@ -1,20 +1,23 @@
-// Verifies opencv installation
+// // Verifies opencv installation
+// // #include <opencv2/opencv.hpp>
 // #include <opencv2/opencv.hpp>
-#include <opencv4/opencv2/opencv.hpp>
-#include <iostream>
+// #include <iostream>
 
-using namespace cv;
+// using namespace cv;
 
-int main() {
-    Mat image = imread("/home/suyanne/Pictures/suyanne.jpeg"); // Substitua por um caminho válido para uma imagem
+// int main() {
+//     // Mat image = imread("/home/suyanne/Pictures/suyanne.jpeg"); // Substitua por um caminho válido para uma imagem
 
-    if (image.empty()) {
-        std::cout << "Não foi possível carregar a imagem." << std::endl;
-        return -1;
-    }
+//     // if (image.empty()) {
+//     //     std::cout << "Não foi possível carregar a imagem." << std::endl;
+//     //     return -1;
+//     // }
 
-    imshow("Imagem", image);
-    waitKey(0);
+//     // imshow("Imagem", image);
+//     // waitKey(0);
 
-    return 0;
-}
+//     // return 0;
+
+//     std::cout << "OpenCV Version: " << CV_VERSION << std::endl;
+//     return 0;
+// }

@@ -11,11 +11,11 @@ struct Config {
     static inline const std::string imagesFolderPath = "/home/suyanne/Documents/PIBIT/codes/computerVision/project/data/raw_datasets/Forest Segmented/images";
     static inline const std::string outputFolder = "/home/suyanne/Documents/PIBIT/codes/computerVision/project/data/processed/keypointImages/ForestSegmented";
     static inline int harrisThreshold = 80;
-    static inline int limit = 40;
+    static inline int limit = 5;
 
     // If the generated images in folder should be in grayscale or not
     static inline bool useGrayScale = true;
-    static inline const std::string keyPointsColor = "red";
+    static inline const std::string keyPointsColor = "green";
 };
 
 #endif

@@ -13,7 +13,17 @@ public:
     virtual ~Descriptor() = default;
 };
 
-class ORBDescriptor : public Descriptor {
+class ORBDescriptor: public Descriptor {
+public:
+    void compute(const Mat &image, vector<KeyPoint> &keypoints, Mat &descriptors) override;
+};
+
+// class SIFTDescriptor: public Descriptor {
+// public:
+//     void compute(const Mat &image, vector<KeyPoint> &keypoints, Mat &descriptors) override;
+// };
+
+class SURFDescriptor: public Descriptor {
 public:
     void compute(const Mat &image, vector<KeyPoint> &keypoints, Mat &descriptors) override;
 };

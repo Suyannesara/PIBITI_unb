@@ -23,4 +23,14 @@ public:
     void detect(const Mat &image, vector<KeyPoint> &keypoints) override;
 };
 
+class SIFTDetector: public Detector {
+public:
+    void detect(const Mat &image, vector<KeyPoint> &keypoints) override;
+};
+
+class SURFDetect: public Detector {
+public:
+    void detect(const Mat &image, vector<KeyPoint> &keypoints) override;
+};
+
 #endif // DETECTOR_H

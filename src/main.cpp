@@ -1,13 +1,23 @@
-#include <opencv2/opencv.hpp>
 #include <iostream>
 #include <filesystem>
+#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
+#ifdef HAVE_OPENCV_XFEATURES2D
+#include <opencv2/highgui.hpp>
+#include <opencv2/features2d.hpp>
+#include "opencv2/xfeatures2d.hpp"
+
 #include "Detector.h"
 #include "Descriptor.h"
 #include "Config.h"
 
+using std::cout;
+using std::endl;
+
 namespace fs = std::filesystem;
 using namespace std;
 using namespace cv;
+using namespace cv::xfeatures2d;
 
 void processDataset(Detector &detector, Descriptor &descriptor) {
     vector<KeyPoint> keypoints;
@@ -61,9 +71,22 @@ void processDataset(Detector &detector, Descriptor &descriptor) {
 }
 
 int main() {
-    ShiTomassi detector;
-    ORBDescriptor descriptor;
+    // SIFTDetector detector;
+    // ShiTomassi detector;
+    SURFDetect detector;
+    cout << "Cheguei aqui";
+    // ORBDescriptor descriptor;
+    SURFDescriptor descriptor;
 
     processDataset(detector, descriptor);
+
     return 0;
 }
+
+#else
+int main()
+{
+    std::cout << "This tutorial code needs the xfeatures2d contrib module to be run." << std::endl;
+    return 0;
+}
+#endif

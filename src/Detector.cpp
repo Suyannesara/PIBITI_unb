@@ -1,6 +1,16 @@
 #include "Detector.h"
 #include "Config.h"
 
+#include <iostream>
+#include "opencv2/core.hpp"
+// #ifdef HAVE_OPENCV_XFEATURES2D
+#include "opencv2/highgui.hpp"
+#include "opencv2/features2d.hpp"
+#include "opencv2/xfeatures2d.hpp"
+
+using namespace cv;
+using namespace cv::xfeatures2d;
+
 void HarrisDetector::detect(const Mat &image, vector<KeyPoint> &keypoints) {
     Mat gray, harrisCorners, harrisNorm;
 
@@ -23,7 +33,7 @@ void ShiTomassi::detect(const Mat &image, vector<KeyPoint> &keypoints) {
     Mat gray;
     
     // Converte a imagem para escala de cinza
-    cvtColor(image, gray, cv::COLOR_BGR2GRAY);
+    cvtColor(image, gray, COLOR_BGR2GRAY);
 
     // Detecta os cantos
     vector<Point2f> corners;
@@ -44,4 +54,35 @@ void ShiTomassi::detect(const Mat &image, vector<KeyPoint> &keypoints) {
     for (const auto &corner : corners) {
         keypoints.emplace_back(corner, 1.0f);  // Raio padrão 1.0f
     }
+}
+
+void SIFTDetector::detect(const Mat &image, vector<KeyPoint> &keypoints) {
+    Mat gray;
+
+    // Converte a imagem para escala de cinza
+    cvtColor(image, gray, COLOR_BGR2GRAY);
+
+    Ptr<SIFT> siftPtr = SIFT::create(
+        3
+    );
+
+    if (keypoints.size() > 3) {
+        keypoints.resize(3);
+    }
+    
+
+    siftPtr->detect(gray, keypoints);
+}
+
+void SURFDetect::detect(const Mat &image, vector<KeyPoint> &keypoints){
+    Mat gray;
+
+    // Converte a imagem para escala de cinza
+    cvtColor(image, gray, COLOR_BGR2GRAY);
+
+    Ptr<SURF> surfPtr = SURF::create(
+        10
+    );
+
+    surfPtr->detect(gray, keypoints);
 }
