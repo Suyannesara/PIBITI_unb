@@ -33,4 +33,14 @@ public:
     void detect(const Mat &image, vector<KeyPoint> &keypoints) override;
 };
 
+class LoGDetector: public Detector {
+public:
+    void detect(const Mat &image, vector<KeyPoint> &keypoints) override;
+};
+
+class FASTDetector: public Detector {
+public:
+    void detect(const Mat &image, vector<KeyPoint> &keypoints) override;
+};
+
 #endif // DETECTOR_H

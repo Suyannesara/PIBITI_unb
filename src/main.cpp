@@ -73,10 +73,11 @@ void processDataset(Detector &detector, Descriptor &descriptor) {
 int main() {
     // SIFTDetector detector;
     // ShiTomassi detector;
-    SURFDetect detector;
+    // SURFDetect detector;
+    FASTDetector detector;
     cout << "Cheguei aqui";
-    // ORBDescriptor descriptor;
-    SURFDescriptor descriptor;
+    ORBDescriptor descriptor;
+    // SURFDescriptor descriptor;
 
     processDataset(detector, descriptor);
 

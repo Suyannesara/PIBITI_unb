@@ -29,3 +29,5 @@ KENEDY Space center dataset
 
 DOCS ÚTEIS:
 - https://docs.opencv.org/4.9.0/d5/dde/tutorial_feature_description.html
+- https://github.com/perdoch/hesaff
+- https://github.com/ducha-aiki/hesaff-pytorch?tab=readme-ov-file
