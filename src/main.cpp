@@ -78,7 +78,8 @@ int main() {
     cout << "Cheguei aqui";
     // ORBDescriptor descriptor;
     // SURFDescriptor descriptor;
-    BRISKDescriptor descriptor;
+    // BRISKDescriptor descriptor;
+    BRIEFDescriptor descriptor;
 
     processDataset(detector, descriptor);
 

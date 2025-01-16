@@ -23,3 +23,8 @@ void BRISKDescriptor::compute(const Mat &image, vector<KeyPoint> &keypoints, Mat
     Ptr<BRISK> briskPtr = BRISK::create();
     briskPtr->compute(image, keypoints, descriptors);
 };
+
+void BRIEFDescriptor::compute(const Mat &image, vector<KeyPoint> &keypoints, Mat &descriptors) {
+    Ptr<BriefDescriptorExtractor> briefPtr = BriefDescriptorExtractor::create(64, false);
+    briefPtr->compute(image, keypoints, descriptors);
+};

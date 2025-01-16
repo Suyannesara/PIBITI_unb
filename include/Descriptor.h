@@ -33,4 +33,9 @@ public:
     void compute(const Mat &image, vector<KeyPoint> &keypoints, Mat &descriptors) override;
 };
 
+class BRIEFDescriptor: public Descriptor {
+public:
+    void compute(const Mat &image, vector<KeyPoint> &keypoints, Mat &descriptors) override;
+};
+
 #endif // DESCRIPTOR_H
