@@ -79,7 +79,8 @@ int main() {
     // ORBDescriptor descriptor;
     // SURFDescriptor descriptor;
     // BRISKDescriptor descriptor;
-    BRIEFDescriptor descriptor;
+    // BRIEFDescriptor descriptor;
+    HOG descriptor;
 
     processDataset(detector, descriptor);
 
