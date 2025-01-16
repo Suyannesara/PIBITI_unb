@@ -11,9 +11,15 @@ make go #🏃‍♀️ to generate and save the images with its keypoints at /da
 #### Implemented Detectors
 - Harris Corner Detector
 - Shi-Tomassi
+- SURF
+- FAST
 
 #### Implemented Descriptors
 - ORB
+- SURF
+- BRISK
+- BRIEF
+- HoG
 
 
 TODOS:
@@ -31,3 +37,4 @@ DOCS ÚTEIS:
 - https://docs.opencv.org/4.9.0/d5/dde/tutorial_feature_description.html
 - https://github.com/perdoch/hesaff
 - https://github.com/ducha-aiki/hesaff-pytorch?tab=readme-ov-file
+- https://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/filter_2d/filter_2d.html
