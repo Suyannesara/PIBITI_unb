@@ -18,3 +18,8 @@ void SURFDescriptor::compute(const Mat &image, vector<KeyPoint> &keypoints, Mat 
     Ptr<SURF> surfPtr = SURF::create();
     surfPtr->compute(image, keypoints, descriptors);
 };
+
+void BRISKDescriptor::compute(const Mat &image, vector<KeyPoint> &keypoints, Mat &descriptors) {
+    Ptr<BRISK> briskPtr = BRISK::create();
+    briskPtr->compute(image, keypoints, descriptors);
+};

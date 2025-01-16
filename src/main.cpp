@@ -76,8 +76,9 @@ int main() {
     // SURFDetect detector;
     FASTDetector detector;
     cout << "Cheguei aqui";
-    ORBDescriptor descriptor;
+    // ORBDescriptor descriptor;
     // SURFDescriptor descriptor;
+    BRISKDescriptor descriptor;
 
     processDataset(detector, descriptor);
 
